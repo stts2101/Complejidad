@@ -21,12 +21,9 @@ public class DynamicArray {
         arreglo[indice] = 0 ;
     }
     public void insertarElemento(int n){
-       // this.arreglo[indice] = n ;
         if (size==capacity){
-            int op = capacity * 2;
-            int[] trace = Arrays.copyOf(arreglo, op);
-            this.arreglo = trace;
-            this.capacity = op;
+            this.arreglo = Arrays.copyOf(arreglo, capacity*2);
+            this.capacity+= 2;
             System.out.println("Arreglo lleno, se duplico el tamaño a: " + capacity);
         }
         arreglo[size] = n;
@@ -52,6 +49,7 @@ public class DynamicArray {
 
     }
 
-
-
+    public void setSize(int size) {
+        this.size = size;
+    }
 }
