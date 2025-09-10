@@ -21,9 +21,13 @@ public class DynamicArray {
         arreglo[indice] = 0 ;
     }
     public void insertarElemento(int n){
+        if(capacity*2>=52000000){
+            System.out.println("Tamaño maximo es " +  52000000);
+            throw new RuntimeException("Limite de tamaño superado");
+        }
         if (size==capacity){
             this.arreglo = Arrays.copyOf(arreglo, capacity*2);
-            this.capacity+= 2;
+            this.capacity*= 2;
             System.out.println("Arreglo lleno, se duplico el tamaño a: " + capacity);
         }
         arreglo[size] = n;
